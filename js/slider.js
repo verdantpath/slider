@@ -6,7 +6,29 @@ $('.slider').each(function() {
   var currentIndex = 0;
   var timeout;
 
-  // move() = The function to move the slides goes here
+  // move() = The function to move the slides
+  function move(newIndex) {
+    var animateLeft, slideLeft;
+
+    advance();
+
+    // if current slide is showing or a slide is animating, then do nothing
+    if ($group.is(':animated') || currentIndex === newIndex) {
+      return;
+    }
+
+    buttonArray[currentIndex].removeClass('active');
+    buttonArray[newIndex].addClass('active');
+
+    if (newIndex > currentIndex) {
+      slideLeft = '100%';
+      animateLeft = '-100%';
+    } else {
+      slideLeft = '-100%';
+      animateLeft = '100%';
+    }
+    // Position new slide to left (if less) or right (if more) or current
+  }
 
   function advance() {
     clearTimeout(timeout);
@@ -29,9 +51,9 @@ $('.slider').each(function() {
     $button.on('click', function() {
       move(index);
     }).appendTo($this.find('.slide-buttons'));
-    buttonArry.push($button);
+    buttonArray.push($button);
   });
 
   advance();
-  
+
 });
