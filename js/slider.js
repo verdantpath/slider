@@ -32,14 +32,19 @@ $('.slider').each(function() {
       left: slideLeft,
       display: 'block'
     });
+
+
     $group.animate({
-      left: animateLeft
-    }, function() {
-      $slides.eq(currentIndex.css({
+        left: animateLeft
+      }, function() {
+      $slides.eq(currentIndex).css({
         display: 'none'
       });
       $slides.eq(newIndex).css({
         left: 0
+      });
+      $group.css({
+        left:0
       });
       currentIndex = newIndex;
     });
