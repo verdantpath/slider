@@ -11,7 +11,18 @@ $('.slider').each(function() {
   function advance() {
     clearTimeout(timeout);
     // Start timer to run an anonymous function every 4 seconds
+    timeout = setTimeout(function() {
+      if (currentIndex < ($slides.length - 1)) {
+        move(currentIndex + 1);
+      } else {
+        move(0);
+      }
+    }, 4000);
   }
+
+  $.each($slides, function(index) {
+    //create a button element for the button
+  });
 
 
 });
