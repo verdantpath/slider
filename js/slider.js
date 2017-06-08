@@ -4,4 +4,5 @@ $('.slider').each(function() {
   var $slides = $this.find('.slide');
   var buttonArray = [];
   var currentIndex = 0;
+  var timeout;
 });
