@@ -28,6 +28,22 @@ $('.slider').each(function() {
       animateLeft = '100%';
     }
     // Position new slide to left (if less) or right (if more) or current
+    $slides.eq(newIndex).css({
+      left: slideLeft,
+      display: 'block'
+    });
+    $group.animate({
+      left: animateLeft
+    }, function() {
+      $slides.eq(currentIndex.css({
+        display: 'none'
+      });
+      $slides.eq(newIndex).css({
+        left: 0
+      });
+      currentIndex = newIndex;
+    });
+
   }
 
   function advance() {
