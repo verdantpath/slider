@@ -22,7 +22,16 @@ $('.slider').each(function() {
 
   $.each($slides, function(index) {
     //create a button element for the button
+    var $button = $('<button type="button" class="slide-btn">&bull;</button>');
+    if (index === currentIndex) {
+      $button.addClass('active');
+    }
+    $button.on('click', function() {
+      move(index);
+    }).appendTo($this.find('.slide-buttons'));
+    buttonArry.push($button);
   });
 
-
+  advance();
+  
 });
